@@ -12,6 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const latest = history[history.length - 1];
 
     renderFeed(latest.result);
+
+    const clearBtn = document.getElementById("clear-history");
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            localStorage.removeItem("crawlHistory");
+            // Clear the UI
+        const feed = document.getElementById("feed");
+        if (feed) feed.innerHTML = "";
+        alert("Crawl history cleared.");
+    });
+}
+
 });
 
 

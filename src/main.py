@@ -5,15 +5,15 @@ from fastapi.templating import Jinja2Templates
 from models import CrawlRequest
 from storage import create_job, get_job
 from task import run_crawl_job
+from pathlib import Path
 
-import csv_report as csv_report
 
-
+BASE_DIR = Path(__file__).resolve().parent
 
 app = FastAPI(title="WebCrawler")
 
-app.mount("/static",StaticFiles(directory="src/static"),name="static")
-templates = Jinja2Templates(directory="src/templates")
+app.mount("/static",StaticFiles(directory=BASE_DIR / "static"),name="static")
+templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 
 @app.get("/", response_class=HTMLResponse)
