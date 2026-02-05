@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Crawler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/static/css/style.css">
+
+    
+</head>
+
+<script src="/static/app.js"></script>
+<body>
+    <nav class="navbar">
+    <ul class="nav--list">
+        <li class="item"><a href="/">Home</a></li>
+        <li class="item"><a href="/feed">Feed</a></li>
+        <li class="item"><a href="/settings">Settings</a></li>
+        <li class="item"><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+<main class="page">
+<div class="container--crawl">
+        <h1>Web Crawler</h1>
+        <div class="subtitle">Configure and launch a crawl
+        </div>
+
+        <form id="crawl-form">
+            <label>
+                Start URL
+                <input type="url" id="url" placeholder="https://example.com" required>
+            </label>
+
+            <label>
+                Max Pages
+                <input type="number" id="max_pages" value="10" min="1">
+            </label>
+
+            <label>
+                Max Concurrency
+                <input type="number" id="max_concurrency" value="3" min="1">
+            </label>
+
+            <button type="submit">Start Crawl</button>
+        </form>
+
+        <h2>Status</h2>
+        <pre id="status" class="status">Idle</pre>
+
+        <h2>Results</h2>
+        <pre id="results" class="results"></pre>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <span>© 2026 · CrawlFeed</span>
+        <span class="footer-muted">Experimental crawler by Koby Buchanan</span>
+    </div>
+</footer>
+
+</body>
+</html>
